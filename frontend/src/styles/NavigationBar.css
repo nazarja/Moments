@@ -1,0 +1,13 @@
+.navigation-bar {
+    background-color: var(--default-white);
+    border: var(--main-border-color);
+}
+
+.nav-link:hover,
+.nav-link:hover>i {
+    color: var(--main-accent-color) !important;
+}
+
+.navlink-active>i {
+    color: var(--main-accent-color) !important;
+}
