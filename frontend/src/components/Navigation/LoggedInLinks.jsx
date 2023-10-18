@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { signOutUser } from '../../store/slices/userSlice';
 import Avatar from '../UI/Avatar';
 
 const LoggedInLinks = ({ linkClassName }) => {
+    const dispatch = useDispatch();
+
     return (
         <>
             <Nav.Link as={Link} className={`add-post-link ${linkClassName('/posts/create')}`} to="/posts/create">
@@ -21,7 +25,7 @@ const LoggedInLinks = ({ linkClassName }) => {
                 <i className="fas fa-heart"></i>
                 Liked
             </Nav.Link>
-            <Nav.Link as={Link} className={linkClassName('')} to="/">
+            <Nav.Link as={Link} className={linkClassName('')} to="/" onClick={() => dispatch(signOutUser())}>
                 <i className="fas fa-sign-out-alt"></i>
                 Sign Out
             </Nav.Link>

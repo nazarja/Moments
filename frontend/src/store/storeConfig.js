@@ -18,8 +18,8 @@ export const store = configureStore({
   middleware: [thunk]
 });
 
+export const dispatch = store.dispatch;
 export const persistor = persistStore(store);
-
 /*
  Uncomment the line below to clear the persisted state,
  Comment it out to persist the state

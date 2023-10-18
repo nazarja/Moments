@@ -11,6 +11,7 @@ const userSlice = createSlice({
             state.isAuthenticated = true;
         },
         signOutUser(state) {
+            state.profile = null;
             state.isAuthenticated = false;
         },
     },
