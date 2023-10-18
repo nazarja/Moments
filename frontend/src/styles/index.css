@@ -15,13 +15,22 @@
   --default-icon-color: #cfced3;
 }
 
+/* General Styles */
+
 body {
   height: 2000px;
 }
 
 i {
   color: var(--default-icon-color);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   padding: 7px;
   vertical-align: middle;
 }
+
+/* Bootstrap Overrides */
+@media screen and (min-width: 1140px) {
+  .container {
+    max-width: 1140px;
+  }
+}   
