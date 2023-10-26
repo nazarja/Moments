@@ -1,10 +1,11 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { signOutUser } from '../../store/slices/userSlice';
 import { Link } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { signOutUser } from '../../store/slices/userSlice';
 import Avatar from '../UI/Avatar';
 
 const LoggedInLinks = ({ linkClassName }) => {
+    const profile = useSelector(state => state.user.profile);   
     const dispatch = useDispatch();
 
     return (
@@ -30,7 +31,7 @@ const LoggedInLinks = ({ linkClassName }) => {
                 Sign Out
             </Nav.Link>
             <Nav.Link as={Link} className={linkClassName('/profile')} to={`/profile`}>
-                <Avatar src={null} text="Profile" height={40} />
+                <Avatar src={profile.profile_image} username={profile.username} height={40} />
             </Nav.Link>
         </>
     );

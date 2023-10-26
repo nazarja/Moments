@@ -4,16 +4,16 @@ import Home from '../pages/Home/Home';
 import ProtectedRoute from './ProtectedRoute';
 import RedirectRoute from './RedirectRoute';
 import Profile from '../pages/Profiles/Profile';
-import SignUp from '../pages/Auth/SignUp';
-import SignIn from '../pages/Auth/SignIn';
+import AuthSignUp from '../pages/Auth/AuthSignUp';
+import AuthSignIn from '../pages/Auth/AuthSignIn';
 
 export const router = createBrowserRouter(createRoutesFromElements(
     <Route element={<Layout />}>
         <Route path='/' element={<Home />} />
 
         <Route element={<RedirectRoute />}>
-            <Route path='/signin' element={<SignIn />} />
-            <Route path='/signup' element={<SignUp />} />
+            <Route path='/signin' element={<AuthSignIn />} />
+            <Route path='/signup' element={<AuthSignUp />} />
         </Route>
 
         <Route element={<ProtectedRoute />}>

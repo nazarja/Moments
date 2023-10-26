@@ -1,19 +1,15 @@
 import { Image } from 'react-bootstrap';
-import avatar from '../../assets/images/default-avatar.jpeg';
 
-const Avatar = ({ src, text, height = 45 }) => {
-    return (
-        <>
-            <Image
-                src={src || avatar}
-                className={""}
-                height={height}
-                width={height}
-                alt="default avatar"
-            />
-            {text}
-        </>
-    );
-};
+const Avatar = ({ src, username, height = 45 }) =>
+    <>
+        <Image
+            src={src}
+            height={height}
+            width={height}
+            alt="default avatar"
+        />
+        <span className='text-capitalize'>{username}</span>
+    </>;
+
 
 export default Avatar;

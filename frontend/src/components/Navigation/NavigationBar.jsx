@@ -2,13 +2,13 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import useClickOutsideToggle from '../../hooks/useClickOutsideToggle';
-import Logo from './Logo';
+import NavigationBarLogo from './NavigationBarLogo';
 import LoggedInLinks from './LoggedInLinks';
 import LoggedOutLinks from './LoggedOutLinks';
-import '../../styles/NavigationBar.css';
+import '../../styles/navigation-bar.css';
 
 const NavigationBar = () => {
-    const user = useSelector(state => state.user);
+    const isAuthenticated = useSelector(state => state.user.isAuthenticated);
     const { ref, expanded ,setExpanded } = useClickOutsideToggle();
     const { pathname } = useLocation();
 
@@ -21,16 +21,16 @@ const NavigationBar = () => {
     return (
         <Navbar expanded={expanded} expand="md" fixed="top" className="navigation-bar">
             <Container>
-                <Logo />
+                <NavigationBarLogo />
                 <Navbar.Toggle
                     ref={ref}
                     onClick={() => setExpanded(!expanded)}
                     aria-controls="basic-navbar-nav"
                 />
                 <Navbar.Collapse>
-                    <Nav>
+                    <Nav className='pt-0'>
                         {
-                            user.isAuthenticated
+                            isAuthenticated
                                 ? <LoggedInLinks linkClassName={linkClassName} />
                                 : <LoggedOutLinks linkClassName={linkClassName} />
                         }

@@ -9,16 +9,21 @@
   -webkit-text-size-adjust: 100%;
 
   /* Variables */
-  --main-accent-color: #2142b2;
-  --main-border-color: 1px solid #dadadf;
-  --default-white: #ffffff;
+  --default-accent-color: #2142b2;
+  --default-white: #f8f8f8;
+  --default-black: #212529;
+  --default-grey: #555;
   --default-icon-color: #cfced3;
+  --default-border: 1px solid #dadadf;
+  --default-transition-time: .3s;
+  --secondary-accent-color: #305ae6;
+  --secondary-grey: #888;
 }
 
-/* General Styles */
-
+/* Default General Styles */
 body {
-  height: 2000px;
+  min-height: 100vh;
+  background-color: var(--default-white);
 }
 
 i {
@@ -28,9 +33,70 @@ i {
   vertical-align: middle;
 }
 
-/* Bootstrap Overrides */
+main {
+  margin-top: 63px;
+}
+
+/* Default Form Styles */
+form input,
+form .alert {
+  max-width: 85%;
+  margin: 1rem auto;
+}
+
+form input[type="submit"] {
+  border-radius: 2rem;
+  background-color: var(--default-accent-color);
+  color: var(--default-white);
+  transition: var(--default-transition-time);
+}
+
+form input[type="submit"]:hover {
+  border-radius: 2rem;
+  transition: var(--default-transition-time);
+  background-color: var(--secondary-accent-color);
+}
+
+form input[type="submit"]:focus {
+  color: var(--default-white);
+  background-color: var(--secondary-accent-color);
+}
+
+/* Default Container Styles */
+.container-border {
+  border: var(--default-border);
+  border-radius: 2.5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* Global Psuedo Styles */
+/* scrollbar */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--default-white);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--secondary-grey);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--default-grey);
+}
+
+/* Global Media Queries*/
+@media screen and (min-width: 768px) {
+  main {
+    margin-top: 72px;
+  }
+}
+
 @media screen and (min-width: 1140px) {
   .container {
     max-width: 1140px;
   }
-}   
+}

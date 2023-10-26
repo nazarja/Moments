@@ -1,6 +1,6 @@
 .navigation-bar {
+    border: var(--default-border);
     background-color: var(--default-white);
-    border: var(--main-border-color);
 }
 
 .navbar-toggler:focus {
@@ -9,21 +9,19 @@
 
 .nav-link:hover,
 .nav-link:hover>i {
-    color: var(--main-accent-color) !important;
+    color: var(--default-accent-color) !important;
 }
 
 .navlink-active>i {
-    color: var(--main-accent-color) !important;
+    color: var(--default-accent-color) !important;
 }
 
 .navbar-collapse {
-    padding-top: 1rem;
     justify-content: flex-end;
 }
 
 .add-post-link {
     margin-right: auto;
-    padding-right: 2rem !important;
 }
 
 @media screen and (min-width: 768px) {
