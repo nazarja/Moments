@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signInAuthService } from '../../services/authServices';
+import { signInService } from '../../services/userService';
 import AuthForm from './AuthForm';
 
 const AuthSignIn = () => {
@@ -14,7 +14,7 @@ const AuthSignIn = () => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        const response = await signInAuthService(formData);
+        const response = await signInService(formData);
 
         if (response.errors)
             setErrors(response.errors);

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signUpAuthService } from '../../services/authServices';
+import { signUpService } from '../../services/userService';
 import AuthForm from './AuthForm';
 
 const AuthSignUp = () => {
@@ -15,7 +15,7 @@ const AuthSignUp = () => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        const response = await signUpAuthService(formData);
+        const response = await signUpService(formData);
 
         if (response.errors)
             setErrors(response.errors);

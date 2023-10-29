@@ -1,12 +1,11 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { signOutUser } from '../../store/slices/userSlice';
+import { useSelector } from 'react-redux';
+import { signOutService } from '../../services/userService';
 import { Link } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 import Avatar from '../UI/Avatar';
 
 const LoggedInLinks = ({ linkClassName }) => {
-    const profile = useSelector(state => state.user.profile);   
-    const dispatch = useDispatch();
+    const profile = useSelector(state => state.user.profile);  
 
     return (
         <>
@@ -26,7 +25,7 @@ const LoggedInLinks = ({ linkClassName }) => {
                 <i className="fas fa-heart"></i>
                 Liked
             </Nav.Link>
-            <Nav.Link as={Link} className={linkClassName('')} to="/" onClick={() => dispatch(signOutUser())}>
+            <Nav.Link as={Link} className={linkClassName('')} to="/" onClick={() => signOutService()}>
                 <i className="fas fa-sign-out-alt"></i>
                 Sign Out
             </Nav.Link>

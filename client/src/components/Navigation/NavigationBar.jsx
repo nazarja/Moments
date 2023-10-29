@@ -8,7 +8,7 @@ import LoggedOutLinks from './LoggedOutLinks';
 import '../../styles/navigation-bar.css';
 
 const NavigationBar = () => {
-    const isAuthenticated = useSelector(state => state.user.isAuthenticated);
+    const isAuthenticated = useSelector(state => state.user.auth.isAuthenticated);
     const { ref, expanded ,setExpanded } = useClickOutsideToggle();
     const { pathname } = useLocation();
 
