@@ -1,36 +1,26 @@
 import { Fragment } from 'react';
-import { Form, Row, Col, Container, Alert } from 'react-bootstrap';
+import { Form, Row, Col, Container } from 'react-bootstrap';
 import AuthSwitcher from './AuthSwitcher';
 import AuthHeroImage from './AuthHeroImage';
 import '../../styles/authentication.css';
+import FormErrors from '../../components/Forms/FormErrors';
 
 const AuthForm = ({ formData, setFormData, errors, handleSubmit, page, url }) => {
 
-    const renderFormInputs = () =>
+    const formInputs = () =>
         Object.keys(formData).map(key =>
             <Fragment key={key}>
                 <Form.Control
                     className='border-0 text-center my-3'
                     type={key.includes('password') ? 'password' : 'text'}
-                    placeholder={createPlaceHolder(key)}
+                    placeholder={key.includes('password2') ? 'confirm password' : key.replace(/\d/, '')}
                     value={formData[key]}
                     onChange={({ target }) => setFormData({ ...formData, [key]: target.value })}
                     autoComplete="off"
                 />
-                {
-                    errors[key]?.map(error => (
-                        <Alert key={`${key}-error`} variant="primary" className="p-1">
-                            {error}
-                        </Alert>
-                    ))
-                }
+                <FormErrors errors={errors} type={'key'} keyName={key} />
             </Fragment>
         );
-
-    const createPlaceHolder = key =>
-        key.includes('password2')
-            ? 'confirm password'
-            : key.replace(/\d/, '');
 
     return (
         <Row className="text-center auth-form-row">
@@ -38,15 +28,9 @@ const AuthForm = ({ formData, setFormData, errors, handleSubmit, page, url }) =>
                 <Container className="container-border py-2 mt-0">
                     <h1 className="fs-6 my-3">{page.toUpperCase()}</h1>
                     <Form onSubmit={handleSubmit}>
-                        {renderFormInputs()}
+                        {formInputs()}
                         <Form.Control type="submit" value={page} />
-                        {
-                            errors.non_field_errors?.map(error => (
-                                <Alert key={'non-field-errors'} variant="primary" className="p-1">
-                                    {error}
-                                </Alert>
-                            ))
-                        }
+                        <FormErrors errors={errors} type={'non_field_errors'} />
                     </Form>
                 </Container>
                 <Container className="container-border">

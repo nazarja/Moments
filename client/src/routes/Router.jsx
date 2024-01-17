@@ -6,6 +6,7 @@ import RedirectRoute from './RedirectRoute';
 import Profile from '../pages/Profiles/Profile';
 import AuthSignUp from '../pages/Auth/AuthSignUp';
 import AuthSignIn from '../pages/Auth/AuthSignIn';
+import PostCreate from '../pages/Posts/PostCreate';
 
 export const router = createBrowserRouter(createRoutesFromElements(
     <Route element={<Layout />}>
@@ -18,6 +19,7 @@ export const router = createBrowserRouter(createRoutesFromElements(
 
         <Route element={<ProtectedRoute />}>
             <Route path='profile' element={<Profile />} />
+            <Route path='/posts/create' element={<PostCreate />} />
         </Route>
     </Route>
 ));

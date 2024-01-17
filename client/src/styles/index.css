@@ -44,20 +44,23 @@ form .alert {
   margin: 1rem auto;
 }
 
-form input[type="submit"] {
+form input[type="submit"],
+form input[type="button"] {
   border-radius: 2rem;
   background-color: var(--default-accent-color);
   color: var(--default-white);
   transition: var(--default-transition-time);
 }
 
-form input[type="submit"]:hover {
+form input[type="submit"]:hover,
+form input[type="button"]:hover {
   border-radius: 2rem;
   transition: var(--default-transition-time);
   background-color: var(--secondary-accent-color);
 }
 
-form input[type="submit"]:focus {
+form input[type="submit"]:focus,
+form input[type="button"]:focus {
   color: var(--default-white);
   background-color: var(--secondary-accent-color);
 }
