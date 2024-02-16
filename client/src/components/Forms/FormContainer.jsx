@@ -6,7 +6,7 @@ const FormContainer = ({ children, handleSubmit, errors }) => {
     const navigate = useNavigate();
 
     return (
-        <Container className="container-border py-2 mt-0">
+        <Container className="container-border py-2 m-0">
             <Form onSubmit={handleSubmit}>
                 {children}
                 <Form.Control type="submit" value={'save'} />

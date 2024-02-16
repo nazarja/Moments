@@ -12,6 +12,10 @@
     color: var(--default-accent-color) !important;
 }
 
+.nav-link * {
+    vertical-align: middle;
+}
+
 .navlink-active>i {
     color: var(--default-accent-color) !important;
 }
@@ -22,6 +26,16 @@
 
 .add-post-link {
     margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-nav {
+        margin-top: 15px;
+    }
+
+    .nav-link i.fas {
+        padding-left: 0;
+    }
 }
 
 @media screen and (min-width: 768px) {

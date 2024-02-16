@@ -30,7 +30,7 @@ const LoggedInLinks = ({ linkClassName }) => {
                 Sign Out
             </Nav.Link>
             <Nav.Link as={Link} className={linkClassName('/profile')} to={`/profile`}>
-                <Avatar src={profile.profile_image} username={profile.username} height={40} />
+                <Avatar src={profile.profile_image} username={profile.username} />
             </Nav.Link>
         </>
     );
