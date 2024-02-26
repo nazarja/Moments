@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { createPostService } from '../../services/postService';
+import { useNavigate } from 'react-router-dom';
 import FormContainer from '../../components/Forms/FormContainer';
 import FormInput from '../../components/Forms/FormInput';
 import FormImage from '../../components/Forms/FormImage';
 import FormTextArea from '../../components/Forms/FormTextArea';
 import UploadImage from '../../assets/images/upload-image.png';
 
-
 const PostCreate = () => {
+    const navigate = useNavigate();
+    const imageRef = useRef(null);
 
     const [post, setPost] = useState({
         title: '',
@@ -17,9 +20,21 @@ const PostCreate = () => {
 
     const [errors, setErrors] = useState({});
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
-        console.log(post);
+
+        const formData = new FormData();
+
+        formData.append("title", post.title);
+        formData.append("content", post.content);
+        formData.append("image", imageRef.current.files[0]);
+
+        const response = await createPostService(formData);
+        
+        if (response.errors)
+            setErrors(response.errors);
+        else if (response.successUrl)
+            navigate(response.successUrl);
     };
 
     return (
@@ -28,10 +43,11 @@ const PostCreate = () => {
                 <FormImage
                     src={UploadImage}
                     text={"Click or tap to upload an image"}
-                    errors={errors}
                     formKey={'image'}
                     formData={post}
                     setFormData={setPost}
+                    errors={errors}
+                    ref={imageRef}
                 />
             </Col>
             <Col md={5} lg={4} className="p-0 p-md-2">

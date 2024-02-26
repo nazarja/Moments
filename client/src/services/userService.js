@@ -1,6 +1,6 @@
+import axios from 'axios';
 import { signInUser, signOutUser } from '../store/slices/userSlice';
 import { dispatch } from "../store/storeConfig";
-import axios from 'axios';
 
 export const signInService = async data => {
     try {
@@ -9,6 +9,7 @@ export const signInService = async data => {
         return { successUrl: '/' };
     }
     catch (error) {
+        console.log({error})
         return { errors: error.response.data };
     }
 };
@@ -30,6 +31,6 @@ export const signOutService = async () => {
         dispatch(signOutUser());
     }
     catch (error) {
-        console.log(data);
+        console.log(error);
     }
 };

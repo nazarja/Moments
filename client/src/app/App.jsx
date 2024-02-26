@@ -1,8 +1,14 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
+import { refreshAuth } from '../utils/refreshAuthUtil';
+import { interceptors } from '../utils/interceptorsUtil';
 
 const App = ({ children }) => {
-    useEffect(() => {
 
+    useEffect(() => {
+        (async () => {
+            await refreshAuth();
+            interceptors();
+        })()
     }, []);
 
     return <>{children}</>;

@@ -1,7 +1,6 @@
 /* Default Form Styles */
 form input,
-form textarea,
-form .alert {
+form textarea {
     max-width: 85%;
     margin: 1rem auto;
 }
@@ -56,6 +55,7 @@ input[type="file"] {
 }
 
 @media screen and (max-width: 767px) {
+
     .form-image,
     .form-button {
         width: 85%;

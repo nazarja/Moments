@@ -7,10 +7,12 @@ import Profile from '../pages/Profiles/Profile';
 import AuthSignUp from '../pages/Auth/AuthSignUp';
 import AuthSignIn from '../pages/Auth/AuthSignIn';
 import PostCreate from '../pages/Posts/PostCreate';
+import PostPage from '../pages/Posts/PostPage';
 
 export const router = createBrowserRouter(createRoutesFromElements(
     <Route element={<Layout />}>
         <Route path='/' element={<Home />} />
+        <Route path='/posts/:id' element={<PostPage />} />
 
         <Route element={<RedirectRoute />}>
             <Route path='/signin' element={<AuthSignIn />} />

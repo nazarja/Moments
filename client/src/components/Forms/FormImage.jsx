@@ -1,9 +1,8 @@
-import { useRef } from 'react';
+import { forwardRef } from 'react';
 import { Container, Form, Image } from 'react-bootstrap';
 import FormErrors from './FormErrors';
 
-const FormImage = ({ src, text, formKey, formData, setFormData, errors }) => {
-    const imageRef = useRef(null);
+const FormImage = forwardRef(({ src, text, formKey, formData, setFormData, errors }, ref) => {
 
     const handleChangeImage = event => {
         if (event.target.files.length) {
@@ -41,14 +40,13 @@ const FormImage = ({ src, text, formKey, formData, setFormData, errors }) => {
                         type="file"
                         accept="image/*"
                         onChange={handleChangeImage}
-                        ref={imageRef}
+                        ref={ref}
                     />
                 </Form.Label>
             </Container>
             <FormErrors errors={errors} type={'key'} keyName={formKey} />
         </>
-    )
-}
-
+    );
+});
 
 export default FormImage;
