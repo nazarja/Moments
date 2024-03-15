@@ -13,11 +13,21 @@ export const createPostService = async data => {
 export const getPostService = async id => {
     try {
         const response = await axios.get(`/api/posts/${id}/`);
-        console.log(response.data)
         return response.data;
     }
     catch (error) {
         console.log(error);
         return null;
+    }
+};
+
+export const getPostsService = async () => {
+    try {
+        const response = await axios.get(`/api/posts/`);
+        return response.data.results;
+    }
+    catch (error) {
+        console.log(error);
+        return [];
     }
 };

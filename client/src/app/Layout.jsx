@@ -1,18 +1,15 @@
 import { Outlet } from 'react-router-dom';
-import NavigationBar from '../components/Navigation/NavigationBar';
 import { Container } from 'react-bootstrap';
+import NavigationBar from '../components/Navigation/NavigationBar';
 
 const Layout = () =>
     <>
         <NavigationBar />
-        <Container>
-            <main>
+        <main>
+            <Container>
                 <Outlet />
-            </main>
-        </Container>
+            </Container>
+        </main>
     </>;
-
-
-
 
 export default Layout;

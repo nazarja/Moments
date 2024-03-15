@@ -6,7 +6,7 @@ import { updateAccessExpiry } from '../store/slices/userSlice';
 
 const axiosAccess = axios.create();
 
-export const refreshAuth = async () => {
+const useRefreshAuth = async () => {
     const { auth: { isAuthenticated, access_expiry } } = store.getState().user;
 
     if (isAuthenticated && (access_expiry < new Date().toISOString())) {
@@ -20,3 +20,5 @@ export const refreshAuth = async () => {
         }
     };
 };
+
+export default useRefreshAuth;

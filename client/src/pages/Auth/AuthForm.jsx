@@ -2,7 +2,6 @@ import { Fragment } from 'react';
 import { Form, Row, Col, Container } from 'react-bootstrap';
 import AuthSwitcher from './AuthSwitcher';
 import AuthHeroImage from './AuthHeroImage';
-import '../../styles/authentication.css';
 import FormErrors from '../../components/Forms/FormErrors';
 
 const AuthForm = ({ formData, setFormData, errors, handleSubmit, page, url }) => {

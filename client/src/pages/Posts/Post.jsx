@@ -1,15 +1,19 @@
-import { Card } from 'react-bootstrap';
+import { Card, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Avatar from '../../components/UI/Avatar';
-// import '../../styles/posts.css';
 
 const Post = ({ post }) => {
     return (
-        <Card>
+        <Card className="mb-4">
             <Card.Header className="d-flex justify-content-between align-items-center">
-                <Avatar src={post.profile_image} username={post.owner} size={50} />
+                <Nav.Link as={Link} to={`/profile`} className="text-capitalize">
+                    <Avatar src={post.profile_image} username={post.owner} size={45} />
+                </Nav.Link>
                 <span>{post.updated_at}</span>
             </Card.Header>
-            <Card.Img src={post.image} alt={post.title} />
+            <Nav.Link as={Link} to={`/posts/${post.id}`}>
+                <Card.Img src={post.image} alt={post.title} />
+            </Nav.Link>
             <Card.Body className="text-center">
                 <Card.Title className="my-2 text-capitalize">{post.title}</Card.Title>
                 <Card.Text className="mt-3 mb-2">{post.content}</Card.Text>

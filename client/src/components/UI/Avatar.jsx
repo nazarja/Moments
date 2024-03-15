@@ -1,13 +1,12 @@
 import { Image } from 'react-bootstrap';
 
-const Avatar = ({ src, username, size = 35 }) =>
+const Avatar = ({ src, username, size = 32 }) =>
     <div>
         <Image
             src={src}
             height={size}
             width={size}
             alt="default avatar"
-            className="mx-2"
         />
         <span className="text-capitalize">{username}</span>
     </div>;

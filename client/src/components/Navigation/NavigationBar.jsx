@@ -5,7 +5,6 @@ import useClickOutsideToggle from '../../hooks/useClickOutsideToggle';
 import NavigationBarLogo from './NavigationBarLogo';
 import LoggedInLinks from './LoggedInLinks';
 import LoggedOutLinks from './LoggedOutLinks';
-import '../../styles/navigation-bar.css';
 
 const NavigationBar = () => {
     const isAuthenticated = useSelector(state => state.user.auth.isAuthenticated);
