@@ -1,7 +1,7 @@
 import { Image } from 'react-bootstrap';
 
 const Avatar = ({ src, username, size = 32 }) =>
-    <div>
+    <div className="avatar">
         <Image
             src={src}
             height={size}

@@ -14,7 +14,7 @@ export const router = createBrowserRouter(createRoutesFromElements(
     <Route element={<Layout />}>
         <Route path='/' element={<Home />} />
         <Route path='/posts/:id' element={<PostDetailPage />} />
-
+        <Route path='/profile/:id' element={<Profile />} />
 
         <Route element={<RedirectRoute />}>
             <Route path='/signin' element={<AuthSignIn />} />

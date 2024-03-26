@@ -30,7 +30,7 @@ form textarea {
 .form-button,
 form input[type="submit"],
 form input[type="button"] {
-    border-radius: 2rem;
+    border-radius: 1.5em;
     background-color: var(--default-accent-color);
     color: var(--default-white);
     transition: var(--default-transition-time);
@@ -53,6 +53,24 @@ form input[type="button"]:focus {
 input[type="file"] {
     display: none;
 }
+
+
+#comment-form form {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+#comment-form form textarea {
+    width: 80%;
+    border: none;
+    border-bottom: 2px solid var(--default-accent-color);
+}
+
+#comment-form form input[type="submit"] {
+    width: 120px;
+} 
 
 @media screen and (max-width: 767px) {
 

@@ -1,9 +1,9 @@
 import { Form } from "react-bootstrap";
 import FormErrors from "./FormErrors";
 
-const FormTextArea = ({ formKey, formData, setFormData, errors, rows = 6 }) =>
+const FormTextArea = ({ formKey, formData, setFormData, errors, rows = 6, comment = false, placeholder = "" }) =>
     <>
-        <Form.Label htmlFor={formKey} className="d-block text-center text-capitalize my-3">{formKey}</Form.Label>
+        {!comment && <Form.Label htmlFor={formKey} className="d-block text-center text-capitalize my-3">{formKey}</Form.Label>}
         <Form.Control
             className='my-3'
             as={'textarea'}
@@ -11,6 +11,7 @@ const FormTextArea = ({ formKey, formData, setFormData, errors, rows = 6 }) =>
             onChange={({ target }) => setFormData({ ...formData, [formKey]: target.value })}
             rows={rows}
             id={formKey}
+            placeholder={placeholder}
         />
         <FormErrors errors={errors} type={'key'} keyName={formKey} />
     </>;

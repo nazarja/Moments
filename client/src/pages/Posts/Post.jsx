@@ -6,7 +6,7 @@ const Post = ({ post }) => {
     return (
         <Card className="mb-4">
             <Card.Header className="d-flex justify-content-between align-items-center">
-                <Nav.Link as={Link} to={`/profile`} className="text-capitalize">
+                <Nav.Link as={Link} to={`/profile/${post.profile_id}/`} className="text-capitalize">
                     <Avatar src={post.profile_image} username={post.owner} size={45} />
                 </Nav.Link>
                 <span>{post.updated_at}</span>
